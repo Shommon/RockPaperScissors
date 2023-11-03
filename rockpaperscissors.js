@@ -26,18 +26,17 @@ function winCondition(player, computer){
 
 function roundPlay(rounds){
 	let score = [0,0];
-	for (i=0; i <= rounds; i++){
-		//Convert strings to uppercase and choosing computer choice
-		let playerChoice = playerPrompt().toString().toUpperCase()
-		let computerChoice = choices[Math.floor(Math.random()*choices.length)];
-		let choiceText = playerText + playerChoice + ', '+ computerText + computerChoice + ", ";
-		
+	for (i=0; i < rounds; i++){
 		if (score[0] == 3){
-		console.log('PLAYER WINS!!!!');
-		} else if (score[1] == 3){
-			console.log('COMPUTER WINS!!!!');
-		} else if (score[0] < 3 || score[1] < 3){
-
+			console.log('PLAYER WINS!!!!');
+			} else if (score[1] == 3){
+				console.log('COMPUTER WINS!!!!');
+			} else if (score[0] < 3 || score[1] < 3){
+				//Convert strings to uppercase and choosing computer choice
+				let playerChoice = playerPrompt().toString().toUpperCase()
+				let computerChoice = choices[Math.floor(Math.random()*choices.length)];
+				let choiceText = playerText + playerChoice + ', '+ computerText + computerChoice + ", ";
+				
 				if (winCondition(playerChoice,computerChoice) == playerWin){
 				score[0] +=1;
 				console.log(choiceText+ winCondition(playerChoice, computerChoice));
@@ -54,10 +53,15 @@ function roundPlay(rounds){
 		
 		}
 	}	
+	if (score[0] > score[1]){
+		console.log('PLAYER WINS!!!!');
+	} else if (score[1] > score[0]){
+		console.log('COMPUTER WINS!!!!');
+	} else if (score[1] == score[0]){
+		console.log('ITS A DRAW!');
+	}
 }
 
-
-105
 
 // //Decoration and Outputting Results
 // let choiceText = playerText + playerChoice + ', '+ computerText + computerChoice + ", ";
