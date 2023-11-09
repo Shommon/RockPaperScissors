@@ -9,20 +9,36 @@ const computerText = 'Computer Chose: '
 const choiceContainer = document.querySelectorAll('.choice-container');
 choiceContainer.forEach(choice => choice.addEventListener('click', (e)=> {
 	const clickedNodeId = e.target.id;
+	const playerChoice = document.querySelector('#playerimage');
+	const playerImg = document.createElement('img');
 	
-	if (e.target.nodeName == "IMG" || e.target.nodeName =="SPAN"){
-		const parentNodeId = e.target.parentNode.id;
-		console.log(parentNodeId)
-		return parentNodeId
-	} else {
-		console.log(clickedNodeId)
-		return clickedNodeId
-	}	
-}));
+	if (e.target.id !== 'container'){
+		if (e.target.nodeName == "IMG" || e.target.nodeName =="SPAN"){
+			const parentNodeId = e.target.parentNode.id;
+			console.log(parentNodeId)
+			playerImg.src = `./images/${parentNodeId}.png`;
+			// return parentNodeId
+		} else {
+			// console.log(clickedNodeId)
+			playerImg.src = `./images/${clickedNodeId}.png`;
+			// return clickedNodeId
+		}
+		if (playerChoice.firstChild) {
+			playerChoice.removeChild(playerChoice.firstChild)	
+			playerChoice.appendChild(playerImg)
+		} else {
+			playerChoice.appendChild(playerImg)
+		} 
+	} else return;
+	
+	}));
 
-function name(e){
 
-}
+// const playerChoice = document.querySelector('#playerimage');
+// const playerImg = document.createElement('img');
+// playerImg.src = './images/Rock.png';
+// playerChoice.appendChild(playerImg);
+
 
 //Take in player choice and computer choice
 function winCondition(player, computer){

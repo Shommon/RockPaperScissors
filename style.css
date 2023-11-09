@@ -28,6 +28,13 @@ body {
 }
 
 /* -------------Score Board ----------- */
+#score{
+    display: flex;
+    gap: 10px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
 
 /* --------- Playing Field ------------ */
 .playfield {
@@ -65,9 +72,6 @@ body {
     align-items: center;
     gap: 5px;
 }
-
-
-
 
 
 /* Choice Container  */
