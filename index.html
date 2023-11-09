@@ -4,10 +4,28 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Lato&display=swap" rel="stylesheet">
     </head>
-
-    <h1>Rock Paper Scissors!</h1>
     <body>
-        <script src="./rockpaperscissors.js"></script>
+        <div class="title">Rock Paper Scissors!</div>
+
+        <div class="playfield">
+            <div class="result computer"></div>
+            <div class="result player"></div>
+        </div>
+
+        <div class="choice-container">
+            <div id="rock" class="choice"><img src="./images/Rock.png" alt="rock hand symbol"><span>Rock</span></div>
+            <div id="paper" class="choice"><img src="./images/Paper.png" alt="paper hand symbol"><span>Paper</span></div>
+            <div id="scissor" class="choice"><img src="./images/Scissors.png" alt="scissors hand symbol"><span>Scissors</span></div>
+        </div>
+        
+        
+        
+        
+        <script src="./rockpaperscissors.js" defer></script>
     </body>
 </html>

@@ -4,7 +4,6 @@ const playerWin = 'Player WINS!'
 const computerWin = 'Computer WINS!'
 const playerText = 'Player Chose: '
 const computerText = 'Computer Chose: '
-const numrounds = 5;
 
 let playerPrompt = () => prompt('Rock, Paper, or Scissors?');
 
@@ -56,8 +55,6 @@ function roundPlay(rounds){
 	}	
 }
 
-
-105
 
 // //Decoration and Outputting Results
 // let choiceText = playerText + playerChoice + ', '+ computerText + computerChoice + ", ";
