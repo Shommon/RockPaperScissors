@@ -5,8 +5,24 @@ const computerWin = 'Computer WINS!'
 const playerText = 'Player Chose: '
 const computerText = 'Computer Chose: '
 
-let playerPrompt = () => prompt('Rock, Paper, or Scissors?');
 
+const choiceContainer = document.querySelectorAll('.choice-container');
+choiceContainer.forEach(choice => choice.addEventListener('click', (e)=> {
+	const clickedNodeId = e.target.id;
+	
+	if (e.target.nodeName == "IMG" || e.target.nodeName =="SPAN"){
+		const parentNodeId = e.target.parentNode.id;
+		console.log(parentNodeId)
+		return parentNodeId
+	} else {
+		console.log(clickedNodeId)
+		return clickedNodeId
+	}	
+}));
+
+function name(e){
+
+}
 
 //Take in player choice and computer choice
 function winCondition(player, computer){
@@ -23,7 +39,7 @@ function winCondition(player, computer){
 	}
 };
 
-function roundPlay(rounds){
+function play(rounds){
 	let score = [0,0];
 	for (i=0; i <= rounds; i++){
 		//Convert strings to uppercase and choosing computer choice
@@ -55,7 +71,3 @@ function roundPlay(rounds){
 	}	
 }
 
-
-// //Decoration and Outputting Results
-// let choiceText = playerText + playerChoice + ', '+ computerText + computerChoice + ", ";
-// console.log(choiceText+ winCondition(playerChoice, computerChoice))

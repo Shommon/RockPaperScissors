@@ -12,9 +12,20 @@
     <body>
         <div class="title">Rock Paper Scissors!</div>
 
+        <div id="score">
+            <div id="computerscore"></div>
+            <div id="playerscore"></div>
+        </div>
+
         <div class="playfield">
-            <div class="result computer"></div>
-            <div class="result player"></div>
+            <div class="result computer">
+                <div class="label">Computer</div>
+                <div class="image"></div>
+            </div>
+            <div class="result player">
+                <div class="label">Player</div>
+                <div class="image"></div>
+            </div>
         </div>
 
         <div class="choice-container">
@@ -24,8 +35,7 @@
         </div>
         
         
-        
-        
+        <audio id="click" src="./sound/buttonpress.wav"></audio>
         <script src="./rockpaperscissors.js" defer></script>
     </body>
 </html>
