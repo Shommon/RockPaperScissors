@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 20px;
 }
 
 
@@ -73,10 +73,20 @@ body {
     gap: 5px;
 }
 
+#result-text{
+    font-weight: bold;
+    font-size: 2em;
+}
+
 .animationPlayer {
-    transition: 1.0s ease;
+    transition: .5s ease;
     transform: rotate(-90deg);
     
+}
+
+.animationComputer{
+    transition: .5s ease;
+    transform: rotate(90deg);
 }
 
 
@@ -120,6 +130,27 @@ body {
 }
 
 .choice:hover{
-    transform: scale(1.1);
+    transform: scale(1.05) translateY(-15px);
+    box-shadow: 0px 20px 20px rgb(85, 85, 85);
     transition: 0.3s all;
+}
+
+/* -------------- Reset Button --------- */
+.reset {
+    width: 140px;
+    height: 50px;
+    background-color: #add8e6;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: transparent;
+    box-shadow: 0px 5px 0px #597d8a;
+}
+
+.reset:active {
+    transition: 100ms ease;
+    transform: translateY(5px);
+    box-shadow: 0px 0px 0px #0000;
+
 }

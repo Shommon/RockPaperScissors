@@ -1,19 +1,43 @@
-// let computerPick = choices[Math.floor(Math.random()*choices.length)];
 const playerImg = document.createElement('img');
 const computerImg = document.createElement('img');
+
 const playerChoice = document.querySelector('#playerimage');
 const computerChoice = document.querySelector('#computerimage');
 const scoreBoard = document.querySelector('#score');
 const computerScore = document.querySelector('#computerscore')
 const playerScore = document.querySelector('#playerscore')
-
-
+const resulttext = document.querySelector('#result-text')
 const currentScore = [0,0];
+let currentRound = 0;
+
+//Reset Button
+const reset = document.querySelector('#reset');
+const resetBtn = document.createElement('button');
+resetBtn.textContent = 'Reset Game'
+resetBtn.classList.add('reset')
+reset.appendChild(resetBtn);
+
+resetBtn.addEventListener('click', resetGame)
+
+function resetGame() {
+	currentScore[0] = 0;
+	currentScore[1] = 0;
+	currentRound = 0;
+	displayScore();
+	displayResult();
+	computerChoice.removeChild(computerChoice.firstChild)	;
+	playerChoice.removeChild(playerChoice.firstChild);
+}
+
+
 // Add event listener to all choices in choice container
 const choiceContainer = document.querySelectorAll('.choice-container');
 choiceContainer.forEach(choice => choice.addEventListener('click', (e)=> {
-	playerPicked(e);
-	}));
+	if (currentRound < 5){
+		playerPicked(e);
+		playerImg.classList.remove('animationPlayer');
+		computerImg.classList.remove('animationComputer')
+	}}));
 
 
 // Update Image in playfield with choice from choice container
@@ -21,7 +45,16 @@ function playerPicked(e) {
     if (e.target.id !== 'container'){ // Make sure click event is within container
 		playerClicked(e);
 		appendPlayerChoice();
-		play(playerClicked(e),computerPicked())
+		play(playerClicked(e),computerPicked());
+		setTimeout(function () {
+			playerImg.classList.add('animationPlayer');
+			computerImg.classList.add('animationComputer');
+		}, 100);
+		currentRound += 1
+		if (currentRound == 5){
+			finalResult()
+		}
+
 	} else return;
 }
 
@@ -41,7 +74,7 @@ function playerClicked(node){
 }
 // Computer Image Updater
 function computerImageUpdate(choice){
-	computerImg.src = `./images/${choice}.png`;
+	computerImg.src = `./images/${choice}_mirrored.png`;
 }
 
 // Append Choices with Images
@@ -60,6 +93,7 @@ function appendComputerChoice(){
 	} else {
 		computerChoice.appendChild(computerImg)
 	}
+	
 }
 
 // Computer's Decision
@@ -75,18 +109,23 @@ function displayScore(){
 	playerScore.textContent = currentScore[1];
 }
 
+//display result
+function displayResult(text){
+	resulttext.textContent = text;
+}
+
 // Check win conditions
 function winCondition(player, computer){
 	if (player == computer){
 		return 'draw';
 	} else if (player == 'rock' && computer == 'scissors'){
-			return 'playerWin';
+			return 'player Win';
 	} else if (player == 'paper' && computer == 'rock'){
-			return 'playerWin';
+			return 'player Win';
 	} else if (player == 'scissors' && computer == 'paper'){
-			return 'playerWin';
+			return 'player Win';
 	} else {
-			return 'computerWin';
+			return 'computer Win';
 	}
 };
 
@@ -96,12 +135,23 @@ function play(player,computer){
 	appendComputerChoice(computer);
 	let result = winCondition(player,computer);
 		if (result == 'draw'){
-			return result;
-		} else if (result == 'playerWin') {
+			console.log(result);
+			// return result;
+		} else if (result == 'player Win') {
 			currentScore[1] += 1;
-		} else if (result == 'computerWin') {
+		} else if (result == 'computer Win') {
 			currentScore[0] += 1;
 		}
-	return result;
+	displayScore();
+	console.log(result);	
 }
 
+function finalResult(){
+	if (currentScore[0] == currentScore[1]){
+		displayResult("IT'S A DRAW!");
+	} else if (currentScore[0] < currentScore[1]) {
+		displayResult("PLAYER WINS!");
+	} else {
+		displayResult("COMPUTER WINS!")
+	}
+}
