@@ -4,10 +4,41 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Lato&display=swap" rel="stylesheet">
     </head>
-
-    <h1>Rock Paper Scissors!</h1>
     <body>
-        <script src="./rockpaperscissors.js"></script>
+        <div class="title">Rock Paper Scissors!</div>
+
+        <div id="score">
+            <div id="computerscore">0</div>
+            <span>-</span>
+            <div id="playerscore">0</div>
+        </div>
+
+        <div id="result-text"></div>
+
+        <div class="playfield">
+            <div class="result computer">
+                <div class="label">Computer</div>
+                <div id='computerimage' class="image"></div>
+            </div>
+            <div class="result player">
+                <div class="label">Player</div>
+                <div id='playerimage' class="image"></div>
+            </div>
+        </div>
+        <div id="reset"></div>
+        <div id="container" class="choice-container">
+            <div id="rock" class="choice"><img src="./images/rock.png" alt="rock hand symbol"><span>Rock</span></div>
+            <div id="paper" class="choice"><img src="./images/paper.png" alt="paper hand symbol"><span>Paper</span></div>
+            <div id="scissors" class="choice"><img src="./images/scissors.png" alt="scissors hand symbol"><span>Scissors</span></div>
+        </div>
+        
+        
+        <audio preload="auto" id="clicksound" src="./sound/buttonpress.wav"></audio>
+        <script src="script.js" defer></script>
     </body>
 </html>
