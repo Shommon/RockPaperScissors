@@ -11,11 +11,13 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+
+    background-color: #595b7d;
 }
 
 
 .title {
-    outline: #000000 dashed 3px;
+    /* outline: #000000 dashed 3px; */
     width: auto;
     height: auto;
     margin-top: 20px;
@@ -25,6 +27,11 @@ body {
     font-size: 60px;
     font-weight: bold;
     text-align: center;
+
+    background-color: #b2b7e1;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px #7b8ac6;
+    color: #fae0c7;
 }
 
 /* -------------Score Board ----------- */
@@ -33,36 +40,41 @@ body {
     gap: 10px;
     font-size: 50px;
     font-weight: bold;
+    color: #fae0c7 ;
 }
 
 
 /* --------- Playing Field ------------ */
 .playfield {
-    outline: black dashed 4px;
+    /* outline: black dashed 4px; */
     width: 800px;
     height: 400px;
-    border-radius: 10px;
+    border-radius: 15px;
 
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
+    background-color: #7b8ac6;
 }
 
 .playfield .label{
-    outline: lightblue dashed 3px;
+    /* outline: lightblue dashed 3px; */
     font-size: 20px;
     font-weight: bold;
     margin-top: 10px;
+    margin-bottom: 10px;
+    color: #fae0c7;
 }
 
 .playfield .image{
-    outline: red dashed 3px;
+    /* outline: red dashed 3px; */
     width: 250px;
     height: 250px;
 }
 
 .result {
-    outline: blue dashed 3px;
+    /* outline: blue dashed 3px; */
     width: 300px;
     height: 300px;
     margin: 0 40px;
@@ -92,7 +104,7 @@ body {
 
 /* Choice Container  */
 .choice-container {
-    outline: red dashed 3px;
+    /* outline: red dashed 3px; */
     width: 600px;
     height: 200px;
     padding: 20px;
@@ -102,6 +114,8 @@ body {
     gap: 30px;
     justify-content: space-evenly;
     align-items: center;
+
+    background-color: #7b8ac6;
     border-radius: 10px;
 }
 
@@ -111,7 +125,7 @@ body {
 }
 
 .choice{
-    outline: #9aa8b6 dashed 3px;
+    /* outline: #9aa8b6 dashed 3px; */
     box-sizing: border-box;
     width: 200px;
     height: 200px;
@@ -122,7 +136,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #E7E9EB;
+    background-color: #b2b7e1;
     border-radius: 10px;
     text-align: center;
     font-size: 20px;
@@ -130,27 +144,37 @@ body {
 }
 
 .choice:hover{
-    transform: scale(1.05) translateY(-15px);
-    box-shadow: 0px 20px 20px rgb(85, 85, 85);
-    transition: 0.3s all;
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 0px #595b7d;
+    transition: 100ms all;
+}
+.choice:active{
+    transition: 100mss all;
+    transform: translateY(2px);
+    box-shadow: 0px 0px 0px #595b7d;
 }
 
 /* -------------- Reset Button --------- */
 .reset {
     width: 140px;
     height: 50px;
-    background-color: #add8e6;
-    color: white;
-    font-size: 15px;
+    background-color: #f0abab;
+    color: #fae0c7;
+    font-size: 18px;
     font-weight: bold;
     border-radius: 10px;
     border: transparent;
-    box-shadow: 0px 5px 0px #597d8a;
+    box-shadow: 0px 5px 0px #be8787;
+}
+.reset:hover {
+    transition:100ms ease;
+    transform: translateY(-1px);
+    box-shadow: 0px 6px 0px #be8787
 }
 
 .reset:active {
     transition: 100ms ease;
-    transform: translateY(5px);
+    transform: translateY(6px);
     box-shadow: 0px 0px 0px #0000;
 
 }

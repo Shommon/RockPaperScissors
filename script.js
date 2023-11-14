@@ -10,6 +10,9 @@ const resulttext = document.querySelector('#result-text')
 const currentScore = [0,0];
 let currentRound = 0;
 
+
+
+
 //Reset Button
 const reset = document.querySelector('#reset');
 const resetBtn = document.createElement('button');
