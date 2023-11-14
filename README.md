@@ -1,6 +1,6 @@
 # RockPaperScissors
-Here is my version of Rock, Paper, Scissors Game/
-Built in Javascript/
+Here is my version of Rock, Paper, Scissors Game\
+Built in Javascript\
 
-Live Demo:/
+Live Demo:\
 https://shommon.github.io/RockPaperScissors/
