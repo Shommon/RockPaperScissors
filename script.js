@@ -10,7 +10,7 @@ const resulttext = document.querySelector('#result-text')
 const currentScore = [0,0];
 let currentRound = 0;
 
-
+const audioBtn = document.querySelector('#clicksound');
 
 
 //Reset Button
@@ -28,8 +28,10 @@ function resetGame() {
 	currentRound = 0;
 	displayScore();
 	displayResult();
-	computerChoice.removeChild(computerChoice.firstChild)	;
+	computerChoice.removeChild(computerChoice.firstChild);
 	playerChoice.removeChild(playerChoice.firstChild);
+	audioBtn.currentTime = 0;
+	audioBtn.play();
 }
 
 
@@ -40,6 +42,9 @@ choiceContainer.forEach(choice => choice.addEventListener('click', (e)=> {
 		playerPicked(e);
 		playerImg.classList.remove('animationPlayer');
 		computerImg.classList.remove('animationComputer')
+		audioBtn.currentTime = 0;
+		audioBtn.play();
+		
 	}}));
 
 
